@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package chess;
+
+option go_package = "proto/chesspb";
+
+service ChessService {
+  rpc MakeMove(MoveRequest) returns (MoveResponse);
+}
+
+message MoveRequest {
+  string from = 1;
+  string to = 2;
+  string player = 3;
+}
+
+message MoveResponse {
+  bool success = 1;   
+  string message = 2; 
+}
