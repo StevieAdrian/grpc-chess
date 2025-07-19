@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-// squareToIndex mengubah notasi seperti "e2" ke indeks [row][col].
-// Row 0 = rank 8 (atas), row 7 = rank 1 (bawah).
 func squareToIndex(sq string) (row, col int, err error) {
 	if len(sq) != 2 {
 		return 0, 0, fmt.Errorf("bad square: %q", sq)
@@ -22,7 +20,7 @@ func squareToIndex(sq string) (row, col int, err error) {
 	}
 
 	col = int(file[0] - 'a')        // a=0 ... h=7
-	boardRank := int(rank[0] - '0') // '1'→1
-	row = 8 - boardRank             // rank 8→row0, rank1→row7
+	boardRank := int(rank[0] - '0') // '1' -> 1
+	row = 8 - boardRank             // rank 8 -> row0, rank1 -> row7
 	return row, col, nil
 }
